@@ -20,12 +20,28 @@ az group create \
     --name $CLUSTER_NAME \
     --location francecentral
 
+#######Manual Node######
+
 az aks create \
     --resource-group $CLUSTER_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
     --node-vm-size Standard_D4s_v3 \
     --generate-ssh-keys
+    
+    
+    
+####Autoscale Nodes#####
+
+az aks create \
+    --resource-group $CLUSTER_NAME \
+    --name $CLUSTER_NAME \
+    --node-count 3 \
+    --node-vm-size Standard_D4s_v3 \
+    --generate-ssh-keys \
+    --enable-cluster-autoscaler \
+    --min-count 1 \
+    --max-count 3
 
 az aks get-credentials \
     --resource-group $CLUSTER_NAME \
