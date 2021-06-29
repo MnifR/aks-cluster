@@ -14,7 +14,7 @@ az provider register -n Microsoft.Compute
 
 az provider register -n Microsoft.ContainerService
 
-export CLUSTER_NAME=inteliam-test
+export CLUSTER_NAME=test
 
 az group create \
     --name $CLUSTER_NAME \
