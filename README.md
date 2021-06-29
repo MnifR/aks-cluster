@@ -34,14 +34,21 @@ az aks create \
 ####Autoscale Nodes#####
 
 az aks create \
-    --resource-group $CLUSTER_NAME \
-    --name $CLUSTER_NAME \
-    --node-count 3 \
-    --node-vm-size Standard_D4s_v3 \
-    --generate-ssh-keys \
-    --enable-cluster-autoscaler \
-    --min-count 1 \
-    --max-count 3
+--resource-group $CLUSTER_NAME \
+--name $CLUSTER_NAME \
+--location francecentral \
+--load-balancer-sku standard \
+--kubernetes-version 1.19.11 \
+--node-count 2 \
+--node-vm-size Standard_D2s_v3 \
+--node-osdisk-size 30 \
+--zones {1,2} \
+--enable-managed-identity \
+--enable-addons monitoring \
+--generate-ssh-keys \
+--enable-cluster-autoscaler \
+--min-count 2 \
+--max-count 2
 
 az aks get-credentials \
     --resource-group $CLUSTER_NAME \
