@@ -54,6 +54,14 @@ az aks get-credentials \
     --resource-group $CLUSTER_NAME \
     --name $CLUSTER_NAME
 
+
+#################
+# List Nodes AZ #
+#################
+
+kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
+
+
 #######################
 # Destroy the cluster #
 #######################
