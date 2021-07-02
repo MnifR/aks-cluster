@@ -1,7 +1,7 @@
 # aks-cluster
 
 ######################
-# Create The Cluster #
+  Create The Cluster 
 ######################
 
 az login
@@ -56,14 +56,14 @@ az aks get-credentials \
 
 
 #################
-# List Nodes AZ #
+  List Nodes AZ 
 #################
 
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
 
 
 #######################
-# Destroy the cluster #
+ Destroy the cluster  
 #######################
 
 az group delete \
